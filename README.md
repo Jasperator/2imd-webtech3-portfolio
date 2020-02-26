@@ -18,3 +18,8 @@
 ### opdracht 4
 ![alt text](https://github.com/Jasperator/2imd-webtech3-portfolio/tree/master/Lab2/lab2-grid/IMD-ticket "IMD ticket (git files)")
 
+![alt text](https://codepen.io/jasperator/pen/ZEGejMR "IMD ticket (codepen)")
+
+
+
+
