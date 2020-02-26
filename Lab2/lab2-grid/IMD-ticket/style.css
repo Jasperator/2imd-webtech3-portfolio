@@ -1,23 +1,15 @@
 section {
-     width: 40%;
-     height: 60%;
+    width: 40%;
+    height: 60%;
+          background: url(https://i.imgur.com/WJ72hBc.jpg);
+     background-size: cover;
 
 display: grid;
 border: 2px solid #000000;
 grid-template-columns:repeat(9, 1fr); ;
 
-    }
-    section::after {
-        content: "";
-        background: url(background.jpg);
-        opacity: 0.25;
-        position: absolute;
-        z-index: -1;   
-        width: 40%;
-        height: 75%;
-        background-size: cover;
+   }
 
-      }
 
 .title {
 grid-column-start: 1; 
@@ -31,50 +23,56 @@ color: white;
 
 }
 h1 {
-    font-size: 50px;
+   font-size: 50px;
 }
 h3 {
-    color: darkgrey;
-    font-weight: bold;
+   color: darkgrey;
+   font-weight: bold;
 }
 .date {
-    grid-column-start: 1; 
+   grid-column-start: 1; 
 grid-column-end: 5; 
 grid-row-start: 5; 
 grid-row-end: 6; 
 text-align: center;
 border: 2px solid #000000;
+ color: white;
+
 }
 .admit {
-    grid-column-start: 5; 
-    grid-column-end: 10; 
-    grid-row-start: 5; 
-    grid-row-end: 6; 
-    text-align: center;
-    border: 2px solid #000000;
+   grid-column-start: 5; 
+   grid-column-end: 10; 
+   grid-row-start: 5; 
+   grid-row-end: 6; 
+   text-align: center;
+   border: 2px solid #000000;
+ color: white;
+
 }
 .ticket {
-    grid-column-start: 1; 
-    grid-column-end: 10; 
-    grid-row-start: 6; 
-    grid-row-end: 7; 
-    text-align: center;
-    border: 2px solid #000000;
+   grid-column-start: 1; 
+   grid-column-end: 10; 
+   grid-row-start: 6; 
+   grid-row-end: 7; 
+   text-align: center;
+   border: 2px solid #000000;
+ color: white;
+
 }
 
 
 
 
 .QR {
-    background-size: cover;
-    grid-column-start: 1; 
-    grid-column-end: 9; 
-    grid-row-start: 2; 
-    grid-row-end: 3; 
-    align-content: center;
-    margin-top: 50%;
-    margin-left: 50%;
-    transform: translate(-50%, -25%);
+   background-size: cover;
+   grid-column-start: 1; 
+   grid-column-end: 9; 
+   grid-row-start: 2; 
+   grid-row-end: 3; 
+   align-content: center;
+   margin-top: 50%;
+   margin-left: 50%;
+   transform: translate(-50%, -25%);
 }
 
 .frustration {
@@ -82,90 +80,83 @@ display: none;
 }
 
 @media screen and (min-width: 1000px) {
-    section {
-        width: 50%;
-        height: 50%;
-   
-   display: grid;
-   border: 2px solid #000000;
-   grid-template-columns:repeat(9, 1fr); ;
-   
-       }
-       section::after {
-           content: "";
-           background: url(background.jpg);
-           opacity: 0.25;
-           position: absolute;
-           z-index: -1;   
-           width: 49.5%;
-           height: 43%;
-           background-size: cover;
-   
-         }
-   
-   .title {
-   grid-column-start: 1; 
-   grid-column-end: 6; 
-   grid-row-start: 1; 
-   grid-row-end: 3; 
-   text-align: center;
-   border: 2px solid #000000;
-   
-   }
-   h1 {
-       font-size: 50px;
-   }
-   h3 {
-       color: darkgrey;
-       font-weight: bold;
-   }
-   .date {
-       grid-column-start: 1; 
-   grid-column-end: 3; 
-   grid-row-start: 3; 
-   grid-row-end: 4; 
-   text-align: center;
-   border: 2px solid #000000;
-   }
-   .admit {
-       grid-column-start: 3; 
-       grid-column-end: 4; 
-       grid-row-start: 3; 
-       grid-row-end: 4; 
-       text-align: center;
-       border: 2px solid #000000;
-   }
-   .ticket {
-       grid-column-start: 4; 
-       grid-column-end: 6; 
-       grid-row-start: 3; 
-       grid-row-end: 4; 
-       text-align: center;
-       border: 2px solid #000000;
-   }
-   
-   
-   
-   
-   .QR {
-       background-size: cover;
-       grid-column-start: 6; 
-       grid-column-end: 9; 
-       grid-row-start: 1; 
-       grid-row-end: 5; 
-       align-content: center;
-       margin-top: 50%;
-       margin-left: 50%;
-       transform: translate(-50%, -25%);
-   }
-   
-   .frustration {
-       grid-column-start: 1; 
-       grid-column-end: 6; 
-       grid-row-start: 4; 
-       grid-row-end: 5; 
-       text-align: center;
-       border: 2px solid #000000;
-   }
+   section {
+       width: 50%;
+       height: 50%;
+                background: url(https://i.imgur.com/WJ72hBc.jpg);
+     background-size: cover;
+
+  
+  display: grid;
+  border: 2px solid #000000;
+  grid-template-columns:repeat(9, 1fr); ;
+  
+      }
+
+  
+  .title {
+  grid-column-start: 1; 
+  grid-column-end: 6; 
+  grid-row-start: 1; 
+  grid-row-end: 3; 
+  text-align: center;
+  border: 2px solid #000000;
+  
+  }
+  h1 {
+      font-size: 50px;
+  }
+  h3 {
+      color: darkgrey;
+      font-weight: bold;
+  }
+  .date {
+      grid-column-start: 1; 
+  grid-column-end: 3; 
+  grid-row-start: 3; 
+  grid-row-end: 4; 
+  text-align: center;
+  border: 2px solid #000000;
+  }
+  .admit {
+      grid-column-start: 3; 
+      grid-column-end: 4; 
+      grid-row-start: 3; 
+      grid-row-end: 4; 
+      text-align: center;
+      border: 2px solid #000000;
+  }
+  .ticket {
+      grid-column-start: 4; 
+      grid-column-end: 6; 
+      grid-row-start: 3; 
+      grid-row-end: 4; 
+      text-align: center;
+      border: 2px solid #000000;
+  }
+  
+  
+  
+  
+  .QR {
+      background-size: cover;
+      grid-column-start: 6; 
+      grid-column-end: 9; 
+      grid-row-start: 1; 
+      grid-row-end: 5; 
+      align-content: center;
+      margin-top: 50%;
+      margin-left: 50%;
+      transform: translate(-50%, -25%);
+  }
+  
+  .frustration {
+      grid-column-start: 1; 
+      grid-column-end: 6; 
+      grid-row-start: 4; 
+      grid-row-end: 5; 
+      text-align: center;
+      border: 2px solid #000000;
+  }
 
 }
