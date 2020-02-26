@@ -5,4 +5,4 @@
 ### Opdracht 1
 (https://github.com/WardVandevoort/2imd-webtech3-lab1)
 ### Opdracht 2
-![alt text](https://github.com/Jasperator/2imd-webtech3-portfolio/blob/master/Git-it-Done-Bewijs.png "Git-It proof")
+![alt text](https://github.com/Jasperator/2imd-webtech3-portfolio/lab1/blob/master/Git-it-Done-Bewijs.png "Git-It proof")
