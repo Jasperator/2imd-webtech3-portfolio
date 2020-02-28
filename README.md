@@ -28,5 +28,8 @@
 (https://codepen.io/jasperator/pen/ZEGejMR)
 
 
+#### Mongo completion
+(http://university.mongodb.com/course_completion/51408cfa-a642-492e-8803-60eb34fed465)
+
 
 
