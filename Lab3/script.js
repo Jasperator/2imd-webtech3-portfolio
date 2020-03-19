@@ -9,12 +9,15 @@ class Note {
     newNote.setAttribute("class", "card"); //<div class="card">
 
     let newP = document.createElement("p"); //<p>Todo</p>
-    newP.innerHTML = title;
+    newP.innerHTML = title + `</br>` + `<a id="remove" href="#" class="card-remove">Remove</a>`;
 
     newNote.appendChild(newP); //<div class="card"> <p>Todo</p></div>
-    // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
+    // HINT🤩 
+    //btnremove.addEventListener('click', this.remove.bind(newNote));
+    let removeLink = newNote.querySelector(`.card-remove`);
+      removeLink.addEventListener(`click`, this.remove.bind(newNote));
+      return newNote;
     
-    return newNote;
   }
   
   add(){
@@ -27,11 +30,27 @@ class Note {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
+    document.querySelector("#add").addEventListener("click", e => {
+      let newItem = {"title" : "One more!"};
+      let items = JSON.parse(localStorage.getItem("stuff")) || [];
+      items.push(newItem);
+      localStorage.setItem("stuff", JSON.stringify(items));
+  });
+  
+  document.querySelector("#show").addEventListener("click", e => {
+    let target = document.querySelector("#all");
+    target.innerText = "";
+    let items = JSON.parse(localStorage.getItem("stuff")) || [];
+    items.forEach(item => {
+        target.innerText += item.title;
+    });
+  });
   }
   
   remove(){
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
+    
   } 
 }
 
@@ -44,6 +63,7 @@ class App {
     // pressing the enter key should also work
     this.btnAdd = document.querySelector("#btnAddNote");
      this.btnAdd.addEventListener("click", this.createNote.bind(this));
+     
     // this.loadNotesFromStorage();
   }
   
@@ -56,7 +76,7 @@ class App {
   createNote(e){
     // this function should create a new note by using the Note() class
     // HINT🤩
-    let text = document.querySelector("#txtAddNote").Value;
+    let text = document.querySelector("#txtAddNote").value;
     let note = new Note(text);
 
      note.add();
