@@ -9,13 +9,13 @@ class Note {
     newNote.setAttribute("class", "card"); //<div class="card">
 
     let newP = document.createElement("p"); //<p>Todo</p>
-    newP.innerHTML = title + `</br>` + `<a id="remove" href="#" class="card-remove">Remove</a>`;
+    newP.innerHTML = title + '</br>' + '<a id="remove" href="#" class="card-remove">Remove</a>';
 
     newNote.appendChild(newP); //<div class="card"> <p>Todo</p></div>
     // HINT🤩 
     //btnremove.addEventListener('click', this.remove.bind(newNote));
-    let removeLink = newNote.querySelector(`.card-remove`);
-      removeLink.addEventListener(`click`, this.remove.bind(newNote));
+    let removeLink = newNote.querySelector('.card-remove');
+      removeLink.addEventListener('click', this.remove.bind(newNote));
       return newNote;
     
   }
@@ -30,21 +30,15 @@ class Note {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
-    document.querySelector("#add").addEventListener("click", e => {
-      let newItem = {"title" : "One more!"};
-      let items = JSON.parse(localStorage.getItem("stuff")) || [];
-      items.push(newItem);
-      localStorage.setItem("stuff", JSON.stringify(items));
-  });
-  
-  document.querySelector("#show").addEventListener("click", e => {
-    let target = document.querySelector("#all");
-    target.innerText = "";
-    let items = JSON.parse(localStorage.getItem("stuff")) || [];
-    items.forEach(item => {
-        target.innerText += item.title;
-    });
-  });
+
+  let newNote = JSON.parse(localStorage.getItem("newNote")) || [];
+      
+      items.push(newNote);
+      console.log(newNote)
+      localStorage.setItem("newNote", JSON.stringify(newNote));
+
+
+
   }
   
   remove(){
@@ -86,6 +80,8 @@ class App {
   
   reset(){
     // this function should reset the form 
+    document.querySelector('#txtAddNote').value = ``;
+
   }
   
 }
