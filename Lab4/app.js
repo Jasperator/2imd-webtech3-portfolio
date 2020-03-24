@@ -26,11 +26,27 @@ class App {
         .then(response => {
            return response.json();
         }).then(data => {
-            document.querySelector("#weather").innerHTML = data.currently.summary;
+            if(data.currently.temperature < 20) {
+                var badweather = document.getElementById("badweather");
+                badweather.style.display = "none";
+                
+
+                document.querySelector("#outside").innerHTML = data.currently.summary;
+
+
+
+            } else {
+                var goodweather = document.getElementById("goodweather");
+                goodweather.style.display = "none";
+
+            document.querySelector("#inside").innerHTML = data.currently.summary;
+            }
+            
         }) .catch(err=>{
             console.log(err);
         })
     }
+
 
     errorLocation(err){
         console.log(err);
