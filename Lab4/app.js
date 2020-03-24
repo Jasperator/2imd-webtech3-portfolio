@@ -26,20 +26,23 @@ class App {
         .then(response => {
            return response.json();
         }).then(data => {
-            if(data.currently.temperature < 20) {
+            if(data.currently.temperature < 10) {
+                var goodweather = document.getElementById("goodweather");
+                goodweather.style.display = "none";
+
+            document.querySelector("#inside").innerHTML = data.currently.summary;
+
+
+
+
+            } else {
+
                 var badweather = document.getElementById("badweather");
                 badweather.style.display = "none";
                 
 
                 document.querySelector("#outside").innerHTML = data.currently.summary;
 
-
-
-            } else {
-                var goodweather = document.getElementById("goodweather");
-                goodweather.style.display = "none";
-
-            document.querySelector("#inside").innerHTML = data.currently.summary;
             }
             
         }) .catch(err=>{
