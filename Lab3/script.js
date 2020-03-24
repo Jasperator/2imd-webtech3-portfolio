@@ -31,11 +31,11 @@ class Note {
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
 
-  let newNote = JSON.parse(localStorage.getItem("newNote")) || [];
-      
-      items.push(newNote);
-      console.log(newNote)
-      localStorage.setItem("newNote", JSON.stringify(newNote));
+    let itemsArray = localStorage.getItem('newNote') ? JSON.parse(localStorage.getItem('newNote')) : [];
+
+    localStorage.setItem('newNote', JSON.stringify(itemsArray));
+    const data = JSON.parse(localStorage.getItem('newNote'));
+    
 
 
 
@@ -65,7 +65,16 @@ class App {
     // HINT🤩
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
+
+    let dataStorage = JSON.parse(localStorage.getItem('newNote'));
+    if(dataStorage.length > 0) {
+      dataStorage.forEach(title => {
+        let note = new Note(title);
+        note.add();
+      });
+    }
   }
+  
    
   createNote(e){
     // this function should create a new note by using the Note() class
@@ -74,8 +83,8 @@ class App {
     let note = new Note(text);
 
      note.add();
-    // note.saveToStorage();
-    // this.reset();
+    note.saveToStorage();
+    //this.reset();
   }
   
   reset(){
