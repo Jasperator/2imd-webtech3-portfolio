@@ -47,11 +47,11 @@ const update = (req, res, next) => {
 }
 
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/";
+var url = "mongodb://localhost:27017/messages";
 
 MongoClient.connect(url, function(err, db) {
   if (err) throw err;
-  var dbo = db.db("mydb");
+  var dbo = db.db("messages");
   var myquery = { messages: "" };
   var newvalues = {$set: {messages: "This message is updated"} };
   dbo.collection("customers").updateOne(myquery, newvalues, function(err, res) {
@@ -61,22 +61,8 @@ MongoClient.connect(url, function(err, db) {
   });
 });
 const remove = (req, res,next) => {
-
-
-        var MongoClient = require('mongodb').MongoClient;
-    var url = "mongodb://localhost:27017/messages";
-    
-    MongoClient.connect(url, function(err, db) {
-      if (err) throw err;
-      var myquery = { messages: "This message is deleted" };
-      db.collection("messages").remove(myquery, function(err, obj) {
-        if (err) throw err;
-        console.log(obj.result.n + " document(s) deleted");
-        db.close();
-      });
-    });
-    }
-
+    res.send("DELETE message" + req.params.id);
+}
 
 
 module.exports.getAll = getAll;
