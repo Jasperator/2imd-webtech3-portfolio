@@ -1,4 +1,4 @@
-const Todo = require('../../../models/todo');
+const Todo = require('../../../models/messages');
 
 
 const getAll = (req, res) => {

@@ -6,10 +6,10 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const apiTodosRouter = require('./routes/api/v1/todos');
+const apiTodosRouter = require('./routes/api/v1/messages');
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/todosapp', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost:27017/messages', {useNewUrlParser: true, useUnifiedTopology: true});
 
 
 const app = express();
