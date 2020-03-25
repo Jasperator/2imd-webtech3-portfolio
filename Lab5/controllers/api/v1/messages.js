@@ -7,11 +7,11 @@ const getAll = (req, res) => {
             res.json({
                 "status": "succes",
                 "data": {
-                    "message": docs
+                    "messages": docs
                 }
             });
         }
-    });
+    }); 
 
 
 }
@@ -42,7 +42,44 @@ const create = (req, res, next) => {
 
 
 }
+const update = (req, res, next) => {
+    res.send("Put message");
+}
+
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("mydb");
+  var myquery = { messages: "" };
+  var newvalues = {$set: {messages: "This message is updated"} };
+  dbo.collection("customers").updateOne(myquery, newvalues, function(err, res) {
+    if (err) throw err;
+    console.log("1 document updated");
+    db.close();
+  });
+});
+const remove = (req, res,next) => {
+
+
+        var MongoClient = require('mongodb').MongoClient;
+    var url = "mongodb://localhost:27017/messages";
+    
+    MongoClient.connect(url, function(err, db) {
+      if (err) throw err;
+      var myquery = { messages: "This message is deleted" };
+      db.collection("messages").remove(myquery, function(err, obj) {
+        if (err) throw err;
+        console.log(obj.result.n + " document(s) deleted");
+        db.close();
+      });
+    });
+    }
+
 
 
 module.exports.getAll = getAll;
 module.exports.create = create;
+module.exports.update = update;
+module.exports.remove = remove;
