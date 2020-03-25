@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const MessagesSchema = new Schema({
+const messagesSchema = new Schema({
     text: {
         type: String,
         required: true
@@ -8,6 +8,6 @@ const MessagesSchema = new Schema({
     user: String,
     completed: Boolean,
 })
-const Message = mongoose.model('Message', MessagesSchema);
+const Message = mongoose.model('Message', messagesSchema);
 
 module.exports = Message;
