@@ -17,6 +17,27 @@ class App {
        this.lng = result.coords.longitude;
        this.getWeather();
     }
+// Get the battery!
+getbattery(){
+    navigator.battery || navigator.webkitBattery || navigator.mozBattery;
+    this.gotLocation.bind(this)
+    console.warn("Battery level: ", battery.level); // 0.58
+
+
+}
+
+gotbattery(){
+    this.bat = battery.level;
+    this.getbattery();
+
+}
+
+// A few useful battery properties
+
+
+
+
+
 
     getWeather(){
         // https://api.darksky.net/forecast/4bc0f32cb110e0f62f38efb677cfebcc/37.8267,-122.4233
@@ -31,9 +52,6 @@ class App {
                 goodweather.style.display = "none";
 
             document.querySelector("#inside").innerHTML = data.currently.summary;
-
-
-
 
             } else {
 
