@@ -37,7 +37,9 @@ class App {
                 var goodweather = document.getElementById("goodweather");
                 goodweather.style.display = "none";
 
-            document.querySelector("#inside").innerHTML = data.currently.summary;
+            document.querySelector("#inside2").innerHTML = data.currently.summary;
+            document.querySelector("#inside").innerHTML = data.currently.temperature;
+
             navigator.battery || navigator.mozBattery || navigator.webkitBattery;
 
          
@@ -61,7 +63,9 @@ class App {
                 badweather.style.display = "none";
                 
 
-                document.querySelector("#outside").innerHTML = data.currently.summary;
+                document.querySelector("#outside2").innerHTML = data.currently.summary;
+                document.querySelector("#outside").innerHTML = data.currently.temperature;
+
 
                 navigator.getBattery().then(function(battery) {
                     function updateAllBatteryInfo(){
