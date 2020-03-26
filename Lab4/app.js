@@ -3,6 +3,7 @@ class App {
        this.getLocation();
        this.lat;
        this.lng;
+       this.bat;
     }
 
     getLocation(){
@@ -19,21 +20,21 @@ class App {
     }
 // Get the battery!
 getbattery(){
-    navigator.battery || navigator.webkitBattery || navigator.mozBattery;
-    this.gotLocation.bind(this)
-    console.warn("Battery level: ", battery.level); // 0.58
+    navigator.battery || navigator.mozBattery || navigator.webkitBattery;
+    console.log(battery);
+    navigator.getBattery();
+    this.gotbattery.bind(this);
 
 
 }
 
-gotbattery(){
-    this.bat = battery.level;
+gotbattery(result){
+    this.bat = result.battery.level;
+    console.log(this.bat);
     this.getbattery();
 
 }
-
-// A few useful battery properties
-
+ 
 
 
 
@@ -52,8 +53,26 @@ gotbattery(){
                 goodweather.style.display = "none";
 
             document.querySelector("#inside").innerHTML = data.currently.summary;
+            navigator.battery || navigator.mozBattery || navigator.webkitBattery;
 
-            } else {
+         
+            navigator.getBattery().then(function(battery) {
+                function updateAllBatteryInfo(){
+                  updateLevelInfo();
+
+                }
+                updateAllBatteryInfo();
+
+                function updateLevelInfo(){
+                  console.log("Battery level: "
+                              + battery.level * 100 + "%");
+                              document.querySelector("#battery").innerHTML =  (battery.level * 100 + "%");
+                }
+
+            }
+        
+
+             ) } else {
 
                 var badweather = document.getElementById("badweather");
                 badweather.style.display = "none";
