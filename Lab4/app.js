@@ -18,22 +18,7 @@ class App {
        this.lng = result.coords.longitude;
        this.getWeather();
     }
-// Get the battery!
-getbattery(){
-    navigator.battery || navigator.mozBattery || navigator.webkitBattery;
-    console.log(battery);
-    navigator.getBattery();
-    this.gotbattery.bind(this);
 
-
-}
-
-gotbattery(result){
-    this.bat = result.battery.level;
-    console.log(this.bat);
-    this.getbattery();
-
-}
  
 
 
