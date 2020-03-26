@@ -33,7 +33,7 @@ class App {
         .then(response => {
            return response.json();
         }).then(data => {
-            if(data.currently.temperature < 10) {
+            if(data.currently.temperature < 5) {
                 var goodweather = document.getElementById("goodweather");
                 goodweather.style.display = "none";
 
@@ -49,8 +49,6 @@ class App {
                 updateAllBatteryInfo();
 
                 function updateLevelInfo(){
-                  console.log("Battery level: "
-                              + battery.level * 100 + "%");
                               document.querySelector("#battery").innerHTML =  (battery.level * 100 + "%");
                 }
 
@@ -65,6 +63,18 @@ class App {
 
                 document.querySelector("#outside").innerHTML = data.currently.summary;
 
+                navigator.getBattery().then(function(battery) {
+                    function updateAllBatteryInfo(){
+                      updateLevelInfo();
+    
+                    }
+                    updateAllBatteryInfo();
+    
+                    function updateLevelInfo(){
+                                  document.querySelector("#battery2").innerHTML =  (battery.level * 100 + "%");
+                    }
+    
+                })
             }
             
         }) .catch(err=>{
