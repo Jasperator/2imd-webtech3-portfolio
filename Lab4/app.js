@@ -52,7 +52,7 @@ class App {
                 console.log(response);
                 return response.json();
             }).then(data => {
-                if (data.currently.temperature < 5) {
+                if (data.currently.temperature < 10) {
                     var goodweather = document.getElementById("goodweather");
                     goodweather.style.display = "none";
 

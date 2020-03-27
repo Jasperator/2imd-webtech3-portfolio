@@ -6,14 +6,14 @@ body{
 
     margin-left: 5%;
 
-    background-image: url(https://lambikstoemper.files.wordpress.com/2012/07/corona-extra.jpg);
+    background-image: url(https://www.biernet.nl/images/merken/39162-Jupilet.PNG);
     background-size: cover;
 text-align: center;
-font-size: 30px;
+font-size: 50px;
 font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-
-width: 400px;
-height: 600px;;
+color: white;
+width: 800px;
+height: 500px;;
 
 }
 
@@ -23,13 +23,15 @@ height: 600px;;
     margin-left: 5%;
 
     background-image: url(https://chocolaterie.pmg.be/uploads/articles/mccbe1603w04_n_02f018b3b.jpg);
-    background-size: cover;
+      background-size: cover;
+
 text-align: center;
 font-size: 50px;
 font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+color: white;
 
 width: 400px;
-height: 600px;;
+height: 700px;;
 
 }
 
