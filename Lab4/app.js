@@ -1,9 +1,9 @@
 class App {
     constructor() {
         this.getLocation();
+        this.getsuperhero();
         this.lat;
         this.lng;
-        this.bat;
     }
 
     getLocation() {
