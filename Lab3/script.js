@@ -34,20 +34,20 @@ class Note {
 
   saveToStorage() {
 
-    let noteToStorage = JSON.parse(localStorage.getItem('newNote')) || [];
+    let noteToStorage = JSON.parse(localStorage.getItem('noteToStorage')) || [];
     noteToStorage.push(this.title);
-    localStorage.setItem('newNote', JSON.stringify(noteToStorage));
+    localStorage.setItem('noteToStorage', JSON.stringify(noteToStorage));
 
   }
 
   remove() {
     this.remove();
-    let newNote = JSON.parse(localStorage.getItem(newNote)) || [];
+    let localArray = JSON.parse(localStorage.getItem('noteToStorage')) || [];
 
-    let newNoteText = this.querySelector(p).innerHTML;
-    let index = newNote.indexOf(newNoteText);
-    newNote.splice(index, 1);
-    localStorage.setItem('newNote', JSON.stringify(newNote));
+    let note = this.querySelector('p').innerHTML;
+    let index = localArray.indexOf(note);
+    localArray.splice(index, 1);
+    localStorage.setItem('noteToStorage', JSON.stringify(localArray));
 
   }
 }
@@ -71,7 +71,7 @@ class App {
   }
 
   loadNotesFromStorage() {
-    let dataStorage = JSON.parse(localStorage.getItem('newNote')) || [];
+    let dataStorage = JSON.parse(localStorage.getItem('noteToStorage')) || [];
     if (dataStorage.length > 0) {
       dataStorage.forEach(dataStorage => {
         let note = new Note(dataStorage);
