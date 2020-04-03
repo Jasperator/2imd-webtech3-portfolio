@@ -16,6 +16,16 @@ class Note {
     //btnremove.addEventListener('click', this.remove.bind(newNote));
     let removeLink = newNote.querySelector('.card-remove');
       removeLink.addEventListener('click', this.remove.bind(newNote));
+
+  
+      let newP = document.createElement('p'); //<p>Todo</p>
+      newP.innerHTML = title;
+  
+      newNote.appendChild(newP);
+
+  
+      // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
+  
       return newNote;
     
   }
@@ -31,10 +41,10 @@ class Note {
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
 
-    let itemsArray = localStorage.getItem('newNote') ? JSON.parse(localStorage.getItem('newNote')) : [];
 
-    localStorage.setItem('newNote', JSON.stringify(itemsArray));
-    const data = JSON.parse(localStorage.getItem('newNote'));
+    let noteToStorage = JSON.parse(localStorage.getItem('todo')) || [];
+		noteToStorage.push(this.title);
+		localStorage.setItem('todo', JSON.stringify(noteToStorage));
     
 
 
