@@ -5,28 +5,25 @@ class Note {
   }
   
   createElement(title){
-    let newNote = document.createElement('div'); // <div>
-    newNote.setAttribute("class", "card"); //<div class="card">
+    let newNote = document.createElement('div');
+		newNote.setAttribute('class', 'card'); 
 
-    let newP = document.createElement("p"); //<p>Todo</p>
-    newP.innerHTML = title + '</br>' + '<a id="remove" href="#" class="card-remove">Remove</a>';
+		let newP = document.createElement('p'); 
+		newP.innerHTML = title;
 
-    newNote.appendChild(newP); //<div class="card"> <p>Todo</p></div>
-    // HINT🤩 
-    //btnremove.addEventListener('click', this.remove.bind(newNote));
-    let removeLink = newNote.querySelector('.card-remove');
-      removeLink.addEventListener('click', this.remove.bind(newNote));
+		newNote.appendChild(newP);
 
-  
-      let newP = document.createElement('p'); //<p>Todo</p>
-      newP.innerHTML = title;
-  
-      newNote.appendChild(newP);
+    let newA = document.createElement('a');
+    
+    newA.setAttribute('class', 'card-remove');
+    
+		newA.innerHTML = 'Remove';
 
-  
-      // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
-  
-      return newNote;
+		newNote.appendChild(newA);
+		newA.addEventListener('click', this.remove.bind(newNote));
+
+
+		return newNote;
     
   }
   
@@ -54,6 +51,14 @@ class Note {
   remove(){
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
+
+    this.remove();
+		let todo = JSON.parse(localStorage.getItem(todo)) || [];
+
+		let todoText = this.querySelector(p).innerHTML; // p selecteren
+		let index = todo.indexOf(todoText); // de index van de p nemen
+		todo.splice(index, 1); // splice removes content uit array
+		localStorage.setItem('todo', JSON.stringify(todo)); // localstorage updaten
     
   } 
 }
@@ -67,6 +72,14 @@ class App {
     // pressing the enter key should also work
     this.btnAdd = document.querySelector("#btnAddNote");
      this.btnAdd.addEventListener("click", this.createNote.bind(this));
+
+     this.loadNotesFromStorage();
+     document.querySelector('#txtAddNote').addEventListener('keydown', (e) => {
+       if (e.keyCode == 13) {
+         e.preventDefault();
+         this.createNote();
+       }
+     });
      
     // this.loadNotesFromStorage();
   }
